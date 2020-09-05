@@ -2,24 +2,35 @@
 def selection_sort(arr):
     # loop through n-1 elements
     for i in range(0, len(arr) - 1):
-        cur_index = i
-        smallest_index = cur_index
+        # cur_index = i
+        # smallest_index = cur_index
         # TO-DO: find next smallest element
         # (hint, can do in 3 loc)
         # Your code here
-
+        min_value = i
+        for j in range(i+1, len(arr)):
+            if arr[j] < arr[min_value]:
+               min_value = j
+        if min_value != i:
 
         # TO-DO: swap
         # Your code here
-
+            arr[min_value], arr[i] = arr[i], arr[min_value]
     return arr
 
 
 # TO-DO:  implement the Bubble Sort function below
 def bubble_sort(arr):
     # Your code here
+    n = len(arr) - 1
+    sorted = False
 
-
+    while not sorted:
+        sorted = True
+        for i in range(0, n):
+            if arr[i] > arr[i+1]:
+                sorted = False
+                arr[i], arr[i+1] = arr[i+1], arr[i]
     return arr
 
 '''
@@ -27,7 +38,7 @@ STRETCH: implement the Counting Sort function below
 
 Counting sort is a sorting algorithm that works on a set of data where
 we specifically know the maximum value that can exist in that set of
-data. The idea behind this algorithm then is that we can create "buckets"
+data. The idea behind this algorithm is that we can create "buckets"
 from 0 up to the max value. This is most easily done by initializing an
 array of 0s whose length is the max value + 1 (why do we need this "+ 1"?).
 
